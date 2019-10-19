@@ -6,7 +6,9 @@ import Color from 'color';
 import Header from '../components/Header';
 
 import HomeScreen from '../screens/HomeScreen';
-import SignInScreen from '../screens/SignInScreen';
+import LoginScreen from '../screens/LoginScreen';
+import SignUpScreen from '../screens/SignUpScreen';
+import RulesScreen from '../screens/RulesScreen';
 import AuthLoadingScreen from '../screens/AuthLoadingScreen';
 import DrawerMenu from './DrawerMenu';
 import Colors from '../constants/Colors';
@@ -14,10 +16,22 @@ import Layout from '../constants/Layout';
 
 const AppStack = createStackNavigator({ Home: HomeScreen });
 const AuthStack = createStackNavigator({
-  SignIn: {
-    screen: SignInScreen,
-    navigationOptions: ({ navigation }) => ({
-      header: <Header title="Logowanie" openDrawer={navigation.openDrawer} />,
+  Login: {
+    screen: ({ navigation }) => LoginScreen({ navigation }),
+    navigationOptions: () => ({
+      header: <Header title="Logowanie" />,
+    }),
+  },
+  SignUp: {
+    screen: ({ navigation }) => SignUpScreen({ navigation }),
+    navigationOptions: () => ({
+      header: <Header title="Rejestracja" />,
+    }),
+  },
+  Rules: {
+    screen: ({ navigation }) => RulesScreen({ navigation }),
+    navigationOptions: () => ({
+      header: <Header title="Regulamin Serwisu" />,
     }),
   }
 });

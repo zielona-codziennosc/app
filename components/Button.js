@@ -1,14 +1,15 @@
 import React from 'react';
 import { TouchableNativeFeedback, Text, View } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
+import Color from 'color';
 import Colors from '../constants/Colors';
 
 export default function Button(props) {
   const {
     text,
-    action,
     size,
-    color
+    color,
+    action
   } = props;
 
   return (
@@ -34,25 +35,35 @@ export default function Button(props) {
 
 export const ButtonColors = {
   white: {
-    color: Colors.green,
+    color: Color(Colors.green).alpha(0.75),
     backgroundColor: Colors.white
+  },
+  transparentGrey: {
+    color: Color(Colors.blackGreenish).alpha(0.5),
+    backgroundColor: 'transparent'
+  },
+  green: {
+    color: Colors.white,
+    backgroundColor: Colors.green
   }
 };
 
 export const ButtonSizes = {
   small: {
-    padding: 10,
+    paddingVertical: 10,
+    paddingHorizontal: 20,
     fontSize: 18
   },
   big: {
-    padding: 20,
+    paddingVertical: 10,
+    paddingHorizontal: 20,
     fontSize: 18
   },
   fullSmall: {
     paddingLeft: 10,
     paddingRight: 10,
     height: '100%',
-    fontSize: 15,
+    fontSize: 18,
   }
 };
 
@@ -60,12 +71,12 @@ const styles = EStyleSheet.create({
   container: {
     borderRadius: 20,
     overflow: 'hidden',
-    height: '100%',
-    width: 'auto',
   },
-  text: {
+  inner: {
     display: 'flex',
     justifyContent: 'center',
+  },
+  text: {
     fontWeight: '600',
   }
 });

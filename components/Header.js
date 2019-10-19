@@ -80,8 +80,10 @@ const styles = EStyleSheet.create({
     display: 'flex',
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'center',
     padding: 20,
-    paddingTop: 40
+    paddingTop: 40,
+    height: 30 + 20 * 3
   },
   containerWithBackground: {
     backgroundColor: Color(Colors.green).alpha(0.75).toString()

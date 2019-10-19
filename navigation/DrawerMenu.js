@@ -11,6 +11,7 @@ import {
 import Color from 'color';
 
 import Button, { ButtonColors, ButtonSizes } from '../components/Button';
+import Divider from '../components/Divider';
 import Colors from '../constants/Colors';
 import Layout from '../constants/Layout';
 import DrawerMenuElement from './DrawerMenuElement';
@@ -32,7 +33,7 @@ export default function DrawerMenu(props) {
           <DrawerMenuElement icon={faFileInvoice} title="Codziennik" route="Review" navigation={navigation} />
         </View>
         <View>
-          <View style={styles.bottomLine} />
+          <Divider style={styles.bottomLine} />
           <View style={styles.bottom}>
             <DrawerBottomElement icon={faUserCircle} title="Mój profil" route="Profile" navigation={navigation} />
             <DrawerBottomElement icon={faCog} title="Ustawienia" route="Settings" navigation={navigation} />
@@ -51,10 +52,12 @@ const styles = EStyleSheet.create({
     flex: 1,
     display: 'flex',
     justifyContent: 'space-between',
+    alignItems: 'center',
     flexDirection: 'row',
     backgroundColor: Color(Colors.green).alpha(0.75).toString(),
     padding: 20,
-    paddingTop: 40
+    paddingTop: 40,
+    height: 30
   },
   userInfoText: {
     fontSize: 18,
@@ -65,13 +68,10 @@ const styles = EStyleSheet.create({
     display: 'flex',
     justifyContent: 'space-between',
     padding: 20,
-    height: Layout.window.height - 80
+    height: Layout.window.height - 90
   },
   bottomLine: {
-    height: 1,
-    width: '100%',
-    marginBottom: 10,
-    backgroundColor: Color(Color.blackGreenish).alpha(0.25).toString()
+    marginBottom: 10
   },
   bottom: {
     display: 'flex',

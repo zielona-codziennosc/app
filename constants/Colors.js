@@ -4,6 +4,6 @@ export default {
   greyGreenish: '#9DA8A7',
   grey: '#f5f5f5',
   green: '#447B66',
-  greenLight: '',
+  greenLight: '#96CCA8',
   blackGreenish: '#4C5B5D'
 };
