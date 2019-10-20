@@ -30,11 +30,21 @@ export default function InitializeScreen() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>{activePart.title}</Text>
-      {hasContent && (
-        <View style={styles.content}>{activePart.content}</View>
-      )}
-      <View style={({ ...styles.buttonContainer, ...!hasContent && styles.lastButtonContainer })}>
+      <Text
+        style={({
+          ...styles.title,
+          ...isLastPart && styles.lastTitle
+        })}
+      >
+        {activePart.title}
+      </Text>
+      {hasContent && <View style={styles.content}>{activePart.content}</View>}
+      <View
+        style={({
+          ...styles.buttonContainer,
+          ...isLastPart && styles.lastButtonContainer
+        })}
+      >
         {!isLastPart && nextPartButton()}
         {isLastPart && lastPartButton()}
       </View>
@@ -87,6 +97,9 @@ const styles = StyleSheet.create({
     fontSize: 28,
     color: Colors.whiteGreenish
   },
+  lastTitle: {
+    textAlign: 'center'
+  },
   content: {
     display: 'flex',
     justifyContent: 'center',
@@ -101,6 +114,6 @@ const styles = StyleSheet.create({
   },
   lastButtonContainer: {
     justifyContent: 'center',
-    marginTop: 40
+    marginTop: Layout.window.height / 8,
   }
 });
