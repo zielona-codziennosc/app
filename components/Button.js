@@ -9,11 +9,12 @@ export default function Button(props) {
     text,
     size,
     color,
-    action
+    action,
+    style
   } = props;
 
   return (
-    <View style={styles.container}>
+    <View style={({ ...styles.container, ...style })}>
       <TouchableNativeFeedback
         underlayColor="transparent"
         onPress={() => action()}
@@ -21,8 +22,7 @@ export default function Button(props) {
         <View style={({ ...styles.inner, ...size, ...color })}>
           <Text style={({
             ...styles.text,
-            color: color.color,
-            fontSize: size.fontSize
+            color: color.color
           })}
           >
             {text}
@@ -38,6 +38,10 @@ export const ButtonColors = {
     color: Color(Colors.green).alpha(0.75),
     backgroundColor: Colors.white
   },
+  greyGreenish: {
+    color: Colors.blackGreenish,
+    backgroundColor: Color(Colors.green).alpha(0.125),
+  },
   transparentGrey: {
     color: Color(Colors.blackGreenish).alpha(0.5),
     backgroundColor: 'transparent'
@@ -50,20 +54,21 @@ export const ButtonColors = {
 
 export const ButtonSizes = {
   small: {
-    paddingVertical: 10,
-    paddingHorizontal: 20,
-    fontSize: 18
+    paddingVertical: 5,
+    paddingHorizontal: 10,
   },
   big: {
     paddingVertical: 10,
     paddingHorizontal: 20,
-    fontSize: 18
   },
   fullSmall: {
     paddingLeft: 10,
     paddingRight: 10,
     height: '100%',
-    fontSize: 18,
+  },
+  circleSmall: {
+    height: 47,
+    width: 47,
   }
 };
 
@@ -75,8 +80,10 @@ const styles = EStyleSheet.create({
   inner: {
     display: 'flex',
     justifyContent: 'center',
+    alignItems: 'center'
   },
   text: {
     fontWeight: '600',
+    fontSize: 18
   }
 });

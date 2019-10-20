@@ -5,5 +5,7 @@ export default {
   grey: '#f5f5f5',
   green: '#447B66',
   greenLight: '#96CCA8',
-  blackGreenish: '#4C5B5D'
+  blackGreenish: '#4C5B5D',
+  azure: '#6FB1B4',
+  olive: '#AFC168'
 };

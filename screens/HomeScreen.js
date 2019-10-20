@@ -1,10 +1,12 @@
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
 
+import City from '../components/City';
+
 export default function HomeScreen() {
   return (
     <View style={styles.container}>
-      {/**/}
+      <City />
     </View>
   );
 }
@@ -12,6 +14,6 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    paddingHorizontal: 20
   }
 });
