@@ -9,29 +9,44 @@ import HomeScreen from '../screens/HomeScreen';
 import LoginScreen from '../screens/LoginScreen';
 import SignUpScreen from '../screens/SignUpScreen';
 import RulesScreen from '../screens/RulesScreen';
+import InitializeScreen from '../screens/InitializeScreen';
 import AuthLoadingScreen from '../screens/AuthLoadingScreen';
 import DrawerMenu from './DrawerMenu';
 import Colors from '../constants/Colors';
 import Layout from '../constants/Layout';
 
-const AppStack = createStackNavigator({ Home: HomeScreen });
+const AppStack = createStackNavigator({
+  Home: {
+    screen: HomeScreen,
+    navigationOptions: ({ navigation }) => ({
+      header: <Header title="Cześć, Imię!" openDrawer={navigation.openDrawer} />
+    }),
+  },
+  Initialize: {
+    screen: InitializeScreen,
+    navigationOptions: () => ({
+      header: null
+    }),
+  }
+});
+
 const AuthStack = createStackNavigator({
   Login: {
     screen: ({ navigation }) => LoginScreen({ navigation }),
     navigationOptions: () => ({
-      header: <Header title="Logowanie" />,
+      header: <Header title="Logowanie" />
     }),
   },
   SignUp: {
     screen: ({ navigation }) => SignUpScreen({ navigation }),
     navigationOptions: () => ({
-      header: <Header title="Rejestracja" />,
+      header: <Header title="Rejestracja" />
     }),
   },
   Rules: {
     screen: ({ navigation }) => RulesScreen({ navigation }),
     navigationOptions: () => ({
-      header: <Header title="Regulamin Serwisu" />,
+      header: <Header title="Regulamin Serwisu" />
     }),
   }
 });
@@ -41,7 +56,12 @@ export default createAppContainer(
     {
       AuthLoading: AuthLoadingScreen,
       App: AppStack,
-      Auth: AuthStack,
+      Auth: {
+        screen: AuthStack,
+        navigationOptions: {
+          drawerLockMode: 'locked-closed'
+        }
+      },
     },
     {
       initialRouteName: 'AuthLoading',

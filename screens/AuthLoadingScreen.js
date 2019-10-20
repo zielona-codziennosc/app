@@ -6,6 +6,8 @@ import {
   View,
 } from 'react-native';
 
+import StorageConstants from '../constants/Storage';
+
 export default class AuthLoadingScreen extends React.Component {
   componentDidMount() {
     this.bootstrapAsync();
@@ -13,9 +15,10 @@ export default class AuthLoadingScreen extends React.Component {
 
   bootstrapAsync = async () => {
     const { navigation } = this.props;
-    const userToken = await AsyncStorage.getItem('userToken');
+    const userToken = await AsyncStorage.getItem(StorageConstants.USER_TOKEN);
+    const appInitialized = await AsyncStorage.getItem(StorageConstants.APP_INITIALIZED);
 
-    navigation.navigate(userToken ? 'App' : 'Auth');
+    navigation.navigate(userToken ? [appInitialized ? 'Initialize' : 'App'] : 'Auth');
   };
 
   render() {

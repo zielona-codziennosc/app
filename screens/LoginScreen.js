@@ -13,13 +13,17 @@ export default function LoginScreen(props) {
     navigation.navigate('SignUp');
   };
 
+  const __TEMPORARY__onLoginButtonClick = () => {
+    navigation.navigate('Home');
+  };
+
   return (
     <View style={styles.container}>
       <View>
         <TextInput style={styles.elementMargin} placeholder="E-mail" />
         <TextInput style={styles.elementMargin} placeholder="Hasło" />
       </View>
-      <View style={({ ...styles.actions, ...styles.elementMargin})}>
+      <View style={({ ...styles.actions, ...styles.elementMargin })}>
         <Button
           text="Rejestracja"
           size={ButtonSizes.big}
@@ -30,6 +34,7 @@ export default function LoginScreen(props) {
           text="Zaloguj"
           size={ButtonSizes.big}
           color={ButtonColors.green}
+          action={__TEMPORARY__onLoginButtonClick}
         />
       </View>
       <Divider style={styles.elementMargin} text="lub" />
