@@ -1,8 +1,6 @@
 import React from 'react';
 import { TouchableNativeFeedback, Text, View } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
-import Color from 'color';
-import Colors from '../../constants/Colors';
 
 export default function Button(props) {
   const {
@@ -10,14 +8,19 @@ export default function Button(props) {
     size,
     color,
     action,
-    style
+    style,
+    disabled
   } = props;
 
+  const disabledStyle = {
+    opacity: 0.75
+  };
+
   return (
-    <View style={({ ...styles.container, ...style })}>
+    <View style={({ ...styles.container, ...style, ...disabled && disabledStyle })}>
       <TouchableNativeFeedback
         underlayColor="transparent"
-        onPress={() => action()}
+        onPress={() => (!disabled ? action() : null)}
       >
         <View style={({ ...styles.inner, ...size, ...color })}>
           <Text style={({

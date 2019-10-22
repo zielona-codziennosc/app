@@ -10,6 +10,7 @@ import LoginScreen from '../screens/LoginScreen';
 import SignUpScreen from '../screens/SignUpScreen';
 import RulesScreen from '../screens/RulesScreen';
 import InitializeScreen from '../screens/InitializeScreen';
+import ActionsListScreen from '../screens/ActionsListScreen';
 import AuthLoadingScreen from '../screens/AuthLoadingScreen';
 import DrawerMenu from './DrawerMenu';
 import Colors from '../constants/Colors';
@@ -27,7 +28,13 @@ const AppStack = createStackNavigator({
     navigationOptions: () => ({
       header: null
     }),
-  }
+  },
+  ActionsList: {
+    screen: ActionsListScreen,
+    navigationOptions: ({ navigation }) => ({
+      header: <Header title="Zróbmy coś!" openDrawer={navigation.openDrawer} />
+    }),
+  },
 });
 
 const AuthStack = createStackNavigator({
