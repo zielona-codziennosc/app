@@ -5,11 +5,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import Color from 'color';
 
-import Colors from '../constants/Colors';
+import Colors from '../../constants/Colors';
 
 export default function SingleCheckboxInput(props) {
-  const { text, style } = props;
   const [value, onChangeValue] = React.useState(true);
+  const { text, style } = props;
 
   return (
     <View style={({ ...styles.container, ...style })}>

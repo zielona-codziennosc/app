@@ -8,7 +8,7 @@ import {
 import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 
-import Layout from '../constants/Layout';
+import Layout from '../../constants/Layout';
 
 export default function GoogleAuthButton(props) {
   const { type } = props;

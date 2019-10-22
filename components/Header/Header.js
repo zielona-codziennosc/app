@@ -8,34 +8,25 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 
-import Colors from '../constants/Colors';
+import Colors from '../../constants/Colors';
 
 library.add(faBars);
 
-export default class Header extends React.Component {
-  constructor(props) {
-    super(props);
+export default function Header(props) {
+  const {
+    title,
+    action,
+    openDrawer,
+    withBackground
+  } = props;
 
-    this.state = {
-      withBackground: false
-    };
-  }
-
-  render() {
-    const {
-      title,
-      action,
-      openDrawer
-    } = this.props;
-    const { withBackground } = this.state;
-
-    return (
-      <View style={({
-        ...styles.container,
-        ...withBackground && styles.containerWithBackground
-      })}
-      >
-        {title && (
+  return (
+    <View style={({
+      ...styles.container,
+      ...withBackground && styles.containerWithBackground
+    })}
+    >
+      {title && (
         <Text style={({
           ...styles.title,
           ...withBackground && styles.titleWhite
@@ -43,37 +34,30 @@ export default class Header extends React.Component {
         >
           {title}
         </Text>
-        )}
+      )}
 
-        {!openDrawer && action}
+      {!openDrawer && action}
 
-        {openDrawer
-          && (
-            <TouchableNativeFeedback
-              style={styles.menuButton}
-              underlayColor="transparent"
-              onPress={() => openDrawer()}
-            >
-              <FontAwesomeIcon
-                icon={faBars}
-                size={20}
-                style={({
-                  ...styles.title,
-                  ...withBackground && styles.titleWhite
-                })}
-              />
-            </TouchableNativeFeedback>
-          )}
-      </View>
-    );
-  }
+      {openDrawer
+      && (
+        <TouchableNativeFeedback
+          style={styles.menuButton}
+          underlayColor="transparent"
+          onPress={() => openDrawer()}
+        >
+          <FontAwesomeIcon
+            icon={faBars}
+            size={20}
+            style={({
+              ...styles.title,
+              ...withBackground && styles.titleWhite
+            })}
+          />
+        </TouchableNativeFeedback>
+      )}
+    </View>
+  );
 }
-
-Header.defaultProps = {
-  title: ' ',
-  action: null,
-  openDrawer: null
-};
 
 const styles = EStyleSheet.create({
   container: {

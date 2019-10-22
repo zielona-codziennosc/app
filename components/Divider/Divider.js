@@ -2,7 +2,8 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import Color from 'color';
 
-import Layout from '../constants/Layout';
+import Layout from '../../constants/Layout';
+import Colors from '../../constants/Colors';
 
 export default function Divider(props) {
   const { style, text } = props;
@@ -35,8 +36,9 @@ const styles = StyleSheet.create({
   },
   dividerLine: {
     height: 2,
+    borderRadius: 1,
     width: (Layout.window.width / 2) - 50,
-    backgroundColor: Color(Color.blackGreenish).alpha(0.25).toString()
+    backgroundColor: Color(Colors.blackGreenish).alpha(0.5).toString()
   },
   dividerLineFullWidth: {
     width: '100%'
@@ -44,7 +46,7 @@ const styles = StyleSheet.create({
   dividerText: {
     fontSize: 18,
     fontWeight: '600',
-    color: Color(Color.blackGreenish).alpha(0.25).toString(),
+    color: Color(Colors.blackGreenish).alpha(0.5).toString(),
     backgroundColor: Color.white,
     paddingHorizontal: 5
   }

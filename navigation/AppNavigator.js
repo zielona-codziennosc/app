@@ -3,7 +3,7 @@ import { createAppContainer, createDrawerNavigator } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import Color from 'color';
 
-import Header from '../components/Header';
+import Header from '../components/Header/Header';
 
 import HomeScreen from '../screens/HomeScreen';
 import LoginScreen from '../screens/LoginScreen';

@@ -8,7 +8,7 @@ export default function CityBody() {
       <SvgUri
         width="200"
         height="200"
-        source={require('../assets/vectors/city.svg')}
+        source={require('../../assets/vectors/city.svg')}
       />
     </View>
   );

@@ -29,8 +29,9 @@ export default function DrawerMenu(props) {
       <View style={styles.content}>
         <View>
           <DrawerMenuElement icon={faHome} title="Dom" route="Home" navigation={navigation} />
-          <DrawerMenuElement icon={faGlobeEurope} title="Zróbmy coś!" route="Initialize" navigation={navigation} />
+          <DrawerMenuElement icon={faGlobeEurope} title="Zróbmy coś!" route="Actions" navigation={navigation} />
           <DrawerMenuElement icon={faFileInvoice} title="Codziennik" route="Review" navigation={navigation} />
+          <DrawerMenuElement icon={faFileInvoice} title="TYMCZASOWE_Inicjalizacja" route="Initialize" navigation={navigation} />
         </View>
         <View>
           <Divider style={styles.bottomLine} />

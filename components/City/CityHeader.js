@@ -2,9 +2,9 @@ import React from 'react';
 import { View } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 
-import PointsTypes from '../constants/PointsTypes';
-import PointsInfo, { PointInfoSizes } from './PointsInfo';
-import Button, { ButtonSizes, ButtonColors } from './Button';
+import PointsTypes from '../../constants/PointsTypes';
+import PointsInfo, { PointInfoSizes } from '../PointsInfo';
+import Button, { ButtonSizes, ButtonColors } from '../Button';
 
 export default function CityHeader() {
   return (
