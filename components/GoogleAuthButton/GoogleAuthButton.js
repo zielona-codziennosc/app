@@ -9,7 +9,7 @@ import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 
 import Layout from '../../constants/Layout';
-import login from "../../authentication/login";
+import login from "../../backendCommunication/login";
 import StorageConstants from '../../constants/Storage';
 
 export default function GoogleAuthButton({type, navigate}) {

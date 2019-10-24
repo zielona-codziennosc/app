@@ -10,7 +10,7 @@ export default function BetterThanAxis(props) {
   const filledAxisStyle = {
     color: type.colors.backgroundAndText,
     backgroundColor: type.colors.main,
-    width: value
+    width: String(Math.floor(value))+"%"
   };
 
   const axisBackgroundStyle = {
@@ -21,7 +21,7 @@ export default function BetterThanAxis(props) {
     <View style={({ ...styles.container, ...style })}>
       <View style={styles.axis}>
         <View style={[styles.filled, filledAxisStyle]}>
-          <Text style={[styles.filledValue, filledAxisStyle]}>{value}</Text>
+          <Text style={[styles.filledValue, filledAxisStyle]}>{Math.floor(value)}</Text>
         </View>
         <View style={[styles.full, axisBackgroundStyle]} />
       </View>

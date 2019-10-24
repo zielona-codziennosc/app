@@ -8,15 +8,14 @@ import BetterThanAxis from './BetterThanAxis';
 import { Axes } from './BetterThanConstants';
 
 
-export default function BetterThan(props) {
-  const { style } = props;
+export default function BetterThan({style, userScores: {lifestyleBetterThan}}) {
 
   return (
     <View style={({ ...styles.container, ...style })}>
       <SmallDivider style={styles.bigMarginBottom} text="Twój styl życia jest lepszy od" />
-      <BetterThanAxis style={styles.marginBottom} type={Axes.Poles} value="51%" />
-      <BetterThanAxis style={styles.marginBottom} type={Axes.Europeans} value="44%" />
-      <BetterThanAxis style={styles.marginBottom} type={Axes.Neighbors} value="76%" />
+      <BetterThanAxis style={styles.marginBottom} type={Axes.Poles} value={lifestyleBetterThan.poles} />
+      <BetterThanAxis style={styles.marginBottom} type={Axes.Europeans} value={lifestyleBetterThan.europeans} />
+      <BetterThanAxis style={styles.marginBottom} type={Axes.Neighbors} value={lifestyleBetterThan.neighbours} />
     </View>
   );
 }
