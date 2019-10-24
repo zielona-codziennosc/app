@@ -8,6 +8,8 @@ import {
 import { Ionicons } from '@expo/vector-icons';
 import EStyleSheet from 'react-native-extended-stylesheet';
 
+import {AuthenticationContextProvider} from "./context/AuthenticationContext";
+
 import AppNavigator from './navigation/AppNavigator';
 
 export default function App(props) {
@@ -24,10 +26,12 @@ export default function App(props) {
     );
   }
   return (
-    <View style={styles.container}>
-      {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
-      <AppNavigator />
-    </View>
+    <AuthenticationContextProvider>
+      <View style={styles.container}>
+        {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
+        <AppNavigator />
+      </View>
+    </AuthenticationContextProvider>
   );
 }
 

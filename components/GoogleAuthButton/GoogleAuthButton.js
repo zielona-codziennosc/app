@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import {
   StyleSheet,
   View,
@@ -9,13 +9,16 @@ import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 
 import Layout from '../../constants/Layout';
+import AuthenticationContext from '../../context/AuthenticationContext';
 
 export default function GoogleAuthButton(props) {
   const { type } = props;
 
+  const authContext = useContext(AuthenticationContext);
+
   return (
     <View style={styles.container}>
-      <TouchableNativeFeedback>
+      <TouchableNativeFeedback onPress={authContext?.reducers?.login}>
         <View style={styles.inner}>
           <View style={styles.iconContainer}>
             <FontAwesomeIcon
