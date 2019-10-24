@@ -14,11 +14,10 @@ const getTokenIfValid = async () => {
     return token;
 };
 
-
 const buryLoginResultInStorage = async ({token, expiresIn, id}) => {
   await Promise.all([
     AsyncStorage.setItem("backend_jwt", String(token)),
-    AsyncStorage.setItem("backend_jwt_exp", String(expiresIn)),
+    AsyncStorage.setItem("backend_jwt_exp", String(Date.now() + expiresIn * 1000)),
     AsyncStorage.setItem("userId", String(id))
   ]);
 };

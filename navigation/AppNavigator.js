@@ -24,7 +24,7 @@ const AppStack = createStackNavigator({
     }),
   },
   Initialize: {
-    screen: InitializeScreen,
+    screen: ({navigation}) => InitializeScreen({navigation}),
     navigationOptions: () => ({
       header: null
     }),
