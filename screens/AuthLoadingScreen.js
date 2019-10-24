@@ -15,19 +15,18 @@ export default class AuthLoadingScreen extends React.Component {
 
   bootstrapAsync = async () => {
     const { navigation } = this.props;
-    const appInitialized =false //await AsyncStorage.getItem(StorageConstants.APP_INITIALIZED);
+    const appInitialized = await AsyncStorage.getItem(StorageConstants.APP_INITIALIZED);
 
     const userToken = await AsyncStorage.getItem(StorageConstants.USER_TOKEN);
     const tokenExp = await AsyncStorage.getItem(StorageConstants.USER_TOKEN_EXPIRATION);
 
     const userTokenValid = (userToken && tokenExp && Number(tokenExp) > Date.now() + 1000 * 60 * 10);
 
-    console.log(appInitialized);
-
     navigation.navigate(userTokenValid ? (appInitialized ? 'App' : 'Initialize') : 'Auth');
   };
 
   render() {
+
     return (
       <View>
         <ActivityIndicator />
