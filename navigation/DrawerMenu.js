@@ -17,6 +17,8 @@ import Layout from '../constants/Layout';
 import DrawerMenuElement from './DrawerMenuElement';
 import DrawerBottomElement from './DrawerBottomElement';
 
+import logout from "../backendCommunication/logout";
+
 export default function DrawerMenu(props) {
   const { navigation } = props;
 
@@ -24,7 +26,12 @@ export default function DrawerMenu(props) {
     <View style={styles.container}>
       <View style={styles.userInfo}>
         <Text style={styles.userInfoText}>Adrian Orłów</Text>
-        <Button text="Wyloguj" size={ButtonSizes.fullSmall} color={ButtonColors.white} />
+        <Button
+          text="Wyloguj"
+          size={ButtonSizes.fullSmall}
+          color={ButtonColors.white}
+          action={() => logout(navigation)}
+        />
       </View>
       <View style={styles.content}>
         <View>
