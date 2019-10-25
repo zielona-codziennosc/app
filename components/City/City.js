@@ -12,7 +12,6 @@ export default function City(props) {
   return (
     <View style={({ ...styles.container, ...style })}>
       <CityHeader style={styles.bottomMargin} savings={props.userScores.totalSavings}/>
-      <CityBody />
     </View>
   );
 }

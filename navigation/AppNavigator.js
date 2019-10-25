@@ -12,6 +12,7 @@ import RulesScreen from '../screens/RulesScreen';
 import InitializeScreen from '../screens/InitializeScreen';
 import ActionsListScreen from '../screens/ActionsListScreen';
 import AuthLoadingScreen from '../screens/AuthLoadingScreen';
+import Codziennik from "../screens/CodziennikScreen";
 import DrawerMenu from './DrawerMenu';
 import Colors from '../constants/Colors';
 import Layout from '../constants/Layout';
@@ -35,6 +36,12 @@ const AppStack = createStackNavigator({
       header: <Header title="Zróbmy coś!" openDrawer={navigation.openDrawer} />
     }),
   },
+  Codziennik: {
+    screen: Codziennik,
+    navigationOptions: ({ navigation }) => ({
+      header: <Header title="Zróbmy coś!" openDrawer={navigation.openDrawer} />
+    }),
+  }
 });
 
 const AuthStack = createStackNavigator({
