@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, ToastAndroid } from 'react-native';
 
 import TextInput from '../components/TextInput';
 import Button, { ButtonColors, ButtonSizes } from '../components/Button';
@@ -14,6 +14,11 @@ export default function LoginScreen(props) {
   };
 
   const __TEMPORARY__onLoginButtonClick = () => {
+    ToastAndroid.showWithGravity(
+      'W prototypie aplikacji jako metoda logowania dostępne jest tylko logowanie z Googlem. Przepraszamy za utrudnienia.',
+      ToastAndroid.SHORT,
+      ToastAndroid.CENTER,
+    );
     navigation.navigate('Home');
   };
 

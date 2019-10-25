@@ -1,5 +1,5 @@
-import React from 'react';
-import { Text, View } from 'react-native';
+import React, {useEffect, useState} from 'react';
+import { Text, View, AsyncStorage } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 import {
   faHome,
@@ -17,14 +17,32 @@ import Layout from '../constants/Layout';
 import DrawerMenuElement from './DrawerMenuElement';
 import DrawerBottomElement from './DrawerBottomElement';
 
+import StorageConstants from "../constants/Storage";
+import logout from "../backendCommunication/logout";
+
 export default function DrawerMenu(props) {
   const { navigation } = props;
+
+  const [userName, setUserName] = useState("");
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const userName = await AsyncStorage.getItem(StorageConstants.USER_NAME);
+      setUserName(userName);
+    };
+    fetchData();
+  },null);
 
   return (
     <View style={styles.container}>
       <View style={styles.userInfo}>
-        <Text style={styles.userInfoText}>Adrian Orłów</Text>
-        <Button text="Wyloguj" size={ButtonSizes.fullSmall} color={ButtonColors.white} />
+        <Text style={styles.userInfoText}>{userName}</Text>
+        <Button
+          text="Wyloguj"
+          size={ButtonSizes.fullSmall}
+          color={ButtonColors.white}
+          action={() => logout(navigation)}
+        />
       </View>
       <View style={styles.content}>
         <View>

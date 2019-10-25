@@ -20,7 +20,7 @@ const AppStack = createStackNavigator({
   Home: {
     screen: HomeScreen,
     navigationOptions: ({ navigation }) => ({
-      header: <Header title="Cześć, Imię!" openDrawer={navigation.openDrawer} />
+      header: <Header openDrawer={navigation.openDrawer} />
     }),
   },
   Initialize: {
