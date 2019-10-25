@@ -18,13 +18,15 @@ export default async () => {
     body: JSON.stringify({ googleIdToken: googleResponse.idToken })
   }).then(response => response.json());
 
+
   await buryLoginResultInStorage(loginResult);
 }
 
-const buryLoginResultInStorage = async ({token, expiresIn, id}) => {
+const buryLoginResultInStorage = async ({token, expiresIn, id, name}) => {
   await Promise.all([
     AsyncStorage.setItem("backend_jwt", String(token)),
     AsyncStorage.setItem("backend_jwt_exp", String(Date.now() + expiresIn * 1000)),
-    AsyncStorage.setItem("userId", String(id))
+    AsyncStorage.setItem("userId", String(id)),
+    AsyncStorage.setItem("userName", String(name))
   ]);
 };

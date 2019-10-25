@@ -11,19 +11,19 @@ export default function CityHeader({savings}) {
   return (
     <View style={styles.container}>
       <PointsInfo
-        value={savings.carbon}
+        value={savings?.carbon}
         size={PointInfoSizes.big}
         type={PointsTypes.leaves}
         style={styles.point}
       />
       <PointsInfo
-        value={savings.water}
+        value={savings?.water}
         size={PointInfoSizes.big}
         type={PointsTypes.water}
         style={styles.point}
       />
       <PointsInfo
-        value={savings.plastic}
+        value={savings?.plastic}
         size={PointInfoSizes.big}
         type={PointsTypes.pollution}
         style={styles.point}

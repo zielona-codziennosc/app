@@ -6,7 +6,6 @@ export default async () => {
   const userToken = await AsyncStorage.getItem(StorageConstants.USER_TOKEN);
   const userId = await AsyncStorage.getItem(StorageConstants.USER_ID);
 
-
   return await fetch(Backend.USER_OF_ID(userId).ROOT, {
     headers: {
       "Authorization": `Bearer ${userToken}`

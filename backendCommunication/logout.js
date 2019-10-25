@@ -14,7 +14,9 @@ export default async (navigation) => {
     }
   }).then(response => response.json());
 
+
   await AsyncStorage.clear();
+  await AsyncStorage.setItem(StorageConstants.APP_INITIALIZED, "true");
 
   navigation.navigate("Auth");
 }
