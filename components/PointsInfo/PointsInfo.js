@@ -22,12 +22,12 @@ export default function PointsInfo(props) {
         ...style
       })}
     >
-      <Text style={styles.value}>{value}</Text>
       <FontAwesomeIcon
         icon={type.icon}
         size={20}
         style={styles.icon}
       />
+      <Text style={styles.value}>{value}</Text>
     </View>
   );
 }

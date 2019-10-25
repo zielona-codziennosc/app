@@ -16,7 +16,7 @@ export default async (navigation) => {
 
 
   await AsyncStorage.clear();
-  await AsyncStorage.setItem(StorageConstants.APP_INITIALIZED, "true");
+ // await AsyncStorage.setItem(StorageConstants.APP_INITIALIZED, "true");
 
   navigation.navigate("Auth");
 }

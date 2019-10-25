@@ -5,6 +5,8 @@ import Button, { ButtonColors, ButtonSizes } from '../components/Button';
 import Colors from '../constants/Colors';
 import Layout from '../constants/Layout';
 
+import handleCoordinates from "../backendCommunication/coordinates";
+
 import StorageConstants from '../constants/Storage';
 
 export default function InitializeScreen(props) {
@@ -13,6 +15,9 @@ export default function InitializeScreen(props) {
   const activePart = parts[partIndex];
   const isLastPart = partIndex + 1 === parts.length;
   const hasContent = activePart.content !== undefined;
+
+
+  handleCoordinates();
 
   const endInitialization = async () => {
     await AsyncStorage.setItem(StorageConstants.APP_INITIALIZED, "true");
