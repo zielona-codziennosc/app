@@ -1,14 +1,16 @@
 import * as Google from 'expo-google-app-auth';
 import { AsyncStorage } from 'react-native';
 
+import Backend from "../constants/Backend";
+import {clientId} from "../constants/Google";
+
 export default async () => {
   const googleResponse = await Google.logInAsync({
-    androidStandaloneAppClientId: "1057953753265-je2pta6uev2paoojtf7h5use62l97ubh.apps.googleusercontent.com",
-    androidClientId: "1057953753265-je2pta6uev2paoojtf7h5use62l97ubh.apps.googleusercontent.com",
+    androidStandaloneAppClientId: clientId,
+    androidClientId: clientId
   });
 
-
-  const loginResult = await fetch("https://trace.papiewski.tk/user/login", {
+  const loginResult = await fetch(Backend.LOGIN, {
     method: "POST",
     headers: {
       'Content-Type': 'application/json'

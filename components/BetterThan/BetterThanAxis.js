@@ -21,11 +21,11 @@ export default function BetterThanAxis(props) {
     <View style={({ ...styles.container, ...style })}>
       <View style={styles.axis}>
         <View style={[styles.filled, filledAxisStyle]}>
-          <Text style={[styles.filledValue, filledAxisStyle]}>{Math.floor(value)}</Text>
+          <Text style={[styles.filledValue, filledAxisStyle]}>{`${Math.floor(value)}%`}</Text>
         </View>
         <View style={[styles.full, axisBackgroundStyle]} />
       </View>
-      <Text style={styles.title}>{type.text}</Text>
+      <Text style={styles.title}>{`${Math.floor(value)}%`} {type.text}</Text>
     </View>
   );
 }
