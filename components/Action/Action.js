@@ -57,11 +57,12 @@ const styles = StyleSheet.create({
   },
   top: {
     height: 100,
-    position: 'relative'
+    position: 'relative',
+    overflow: 'hidden'
   },
   image: {
     width: '100%',
-    height: 100
+    height: 110
   },
   imageAuthor: {
     position: 'absolute',
