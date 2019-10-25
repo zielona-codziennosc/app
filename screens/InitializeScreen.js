@@ -1,15 +1,23 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text, AsyncStorage } from 'react-native';
 
 import Button, { ButtonColors, ButtonSizes } from '../components/Button';
 import Colors from '../constants/Colors';
 import Layout from '../constants/Layout';
 
-export default function InitializeScreen() {
+import StorageConstants from '../constants/Storage';
+
+export default function InitializeScreen(props) {
+
   const [partIndex, setPartIndex] = React.useState(0);
   const activePart = parts[partIndex];
   const isLastPart = partIndex + 1 === parts.length;
   const hasContent = activePart.content !== undefined;
+
+  const endInitialization = async () => {
+    await AsyncStorage.setItem(StorageConstants.APP_INITIALIZED, "true");
+    props.navigation.navigate("Home");
+  };
 
   const nextPartButton = () => (
     <Button
@@ -25,6 +33,7 @@ export default function InitializeScreen() {
       text="Zaczynamy!"
       color={ButtonColors.white}
       size={ButtonSizes.big}
+      action={endInitialization}
     />
   );
 

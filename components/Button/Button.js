@@ -20,7 +20,7 @@ export default function Button(props) {
     <View style={({ ...styles.container, ...style, ...disabled && disabledStyle })}>
       <TouchableNativeFeedback
         underlayColor="transparent"
-        onPress={() => (!disabled ? action() : null)}
+        onPress={() => (disabled ? null : action())}
       >
         <View style={({ ...styles.inner, ...size, ...color })}>
           <Text style={({

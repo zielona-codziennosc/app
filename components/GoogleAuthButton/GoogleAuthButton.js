@@ -1,24 +1,29 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import {
   StyleSheet,
   View,
   TouchableNativeFeedback,
-  Text
+  Text, AsyncStorage
 } from 'react-native';
 import { faGoogle } from '@fortawesome/free-brands-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 
 import Layout from '../../constants/Layout';
-import AuthenticationContext from '../../context/AuthenticationContext';
+import login from "../../backendCommunication/login";
+import StorageConstants from '../../constants/Storage';
 
-export default function GoogleAuthButton(props) {
-  const { type } = props;
+export default function GoogleAuthButton({type, navigate}) {
 
-  const authContext = useContext(AuthenticationContext);
+  const loginHook = async () => {
+    await login();
+
+    const appInitialized = await AsyncStorage.getItem(StorageConstants.APP_INITIALIZED);
+    navigate(appInitialized ? "Home" : "Initialize");
+  };
 
   return (
     <View style={styles.container}>
-      <TouchableNativeFeedback onPress={authContext?.reducers?.login}>
+      <TouchableNativeFeedback onPress={loginHook}>
         <View style={styles.inner}>
           <View style={styles.iconContainer}>
             <FontAwesomeIcon

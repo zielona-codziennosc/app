@@ -38,7 +38,7 @@ export default function LoginScreen(props) {
         />
       </View>
       <Divider style={styles.elementMargin} text="lub" />
-      <GoogleAuthButton type="login" />
+      <GoogleAuthButton type="login" navigate={navigation.navigate} />
     </View>
   );
 }

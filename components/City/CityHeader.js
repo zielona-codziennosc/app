@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { View } from 'react-native';
 import EStyleSheet from 'react-native-extended-stylesheet';
 
@@ -6,23 +6,24 @@ import PointsTypes from '../../constants/PointsTypes';
 import PointsInfo, { PointInfoSizes } from '../PointsInfo';
 import Button, { ButtonSizes, ButtonColors } from '../Button';
 
-export default function CityHeader() {
+export default function CityHeader({savings}) {
+
   return (
     <View style={styles.container}>
       <PointsInfo
-        value={10}
+        value={savings.carbon}
         size={PointInfoSizes.big}
         type={PointsTypes.leaves}
         style={styles.point}
       />
       <PointsInfo
-        value={11}
+        value={savings.water}
         size={PointInfoSizes.big}
         type={PointsTypes.water}
         style={styles.point}
       />
       <PointsInfo
-        value={12}
+        value={savings.plastic}
         size={PointInfoSizes.big}
         type={PointsTypes.pollution}
         style={styles.point}
